@@ -1,17 +1,1 @@
-task_data = {"title", "raw_due_date_str}
 
-def format_task_to_event(task_data: Dict[str, Any]) -> Dict[str, Any] | None:
-
-    TITLE = task_data["title"]
-    RAW_DUE_DATE = task_data["raw_due_data_str"]
-
-    TIMEZONE = "Asia/Tokyo"
-    DATE_FORMAT = "%Y年%m月%d日 %H:%M"
-
-    try:
-        due_datetime_native = datetime.strptime(RAW_DUE_DATE, DATE_FORMAT)
-        tz = pytz.tiezone(TIMEZONE)
-        DUE_DATETIME_TZ = tz.localiza(due_datetime_native)
-
-    except ValueError as e:
-        
